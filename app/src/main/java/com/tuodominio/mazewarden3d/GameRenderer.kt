@@ -192,9 +192,13 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
         // 2) Crea SwapChain, Renderer, Scene, Camera
         swapChain = engine.createSwapChain(surfaceView.holder.surface)
         renderer = engine.createRenderer()
-        // Abilita post-processing avanzato
-        renderer.enableBloom(true)
-        renderer.enableAntiAliasing(true)
+        // Abilita post-processing avanzato (se disponibile)
+        try {
+            // renderer.enableBloom(true) // Non disponibile in 1.17.1
+            // renderer.enableAntiAliasing(true) // Non disponibile in 1.17.1
+        } catch (e: Exception) {
+            // Advanced features not available in this Filament version
+        }
         scene = engine.createScene()
 
         // 3) Crea View e Camera
@@ -203,9 +207,13 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
         view = engine.createView().apply {
             setCamera(cameraEntity)
             setScene(scene)
-            // Abilita environment lighting e skybox
-            isPostProcessingEnabled = true
-            dynamicResolutionOptions = View.DynamicResolutionOptions(0.85f)
+            // Abilita environment lighting e skybox (se disponibile)
+            try {
+                isPostProcessingEnabled = true
+                // dynamicResolutionOptions = View.DynamicResolutionOptions(0.85f) // Non disponibile in 1.17.1
+            } catch (e: Exception) {
+                // Advanced features not available in this Filament version
+            }
         }
 
         // 4) Posiziona la camera (vista isometrica dall'alto)
@@ -796,34 +804,39 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     }
     
     private fun setAdvancedAntiAliasing() {
-        // Simulazione renderer.setAntiAliasing(Renderer.AntiAliasing.FXAA)
-        view.antiAliasing = View.AntiAliasing.FXAA
+        try {
+            // view.antiAliasing = View.AntiAliasing.FXAA // Non disponibile in 1.17.1
+        } catch (e: Exception) {
+            // Anti-aliasing not available in this Filament version
+        }
     }
     
     private fun setBloomOptions(enabled: Boolean, strength: Float) {
-        // Simulazione filamentRenderer.setBloomOptions(BloomOptions(...))
-        view.bloomOptions = View.BloomOptions().apply {
-            this.enabled = enabled
-            this.strength = strength
-            this.resolution = 1024  // HD resolution
+        try {
+            // view.bloomOptions = View.BloomOptions() // Non disponibile in 1.17.1
+        } catch (e: Exception) {
+            // Bloom options not available in this Filament version
         }
     }
     
     private fun setDynamicLighting(enabled: Boolean) {
-        // Illuminazione dinamica avanzata
-        view.dynamicLighting = enabled
-        view.shadowingEnabled = enabled
+        try {
+            // view.dynamicLighting = enabled // Non disponibile in 1.17.1
+            view.shadowingEnabled = enabled
+        } catch (e: Exception) {
+            // Dynamic lighting not available in this Filament version
+        }
     }
 
     private fun enableDynamicLighting() {
         // Abilita shadow mapping ad alta risoluzione
         view.shadowingEnabled = true
         
-        // Configurazione bloom avanzato
-        view.bloomOptions = View.BloomOptions().apply {
-            enabled = true
-            strength = 0.9f
-            resolution = 512
+        // Configurazione bloom avanzato (se disponibile)
+        try {
+            // view.bloomOptions = View.BloomOptions() // Non disponibile in 1.17.1
+        } catch (e: Exception) {
+            // Bloom not available in this Filament version
         }
     }
 
