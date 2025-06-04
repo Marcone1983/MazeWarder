@@ -103,10 +103,10 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer-core:2.19.1")
     implementation("com.google.android.exoplayer:exoplayer-ui:2.19.1")
 
-    // Filament 3D Engine - ENTERPRISE EDITION (versione stabile disponibile)  
-    implementation("com.google.android.filament:filament-android:1.17.1")
-    implementation("com.google.android.filament:gltfio-android:1.17.1") 
-    implementation("com.google.android.filament:filament-utils-android:1.17.1")
+    // Filament 3D Engine - ENTERPRISE EDITION (versione che esiste davvero)  
+    implementation("com.google.android.filament:filament-android:1.9.25")
+    implementation("com.google.android.filament:gltfio-android:1.9.25") 
+    implementation("com.google.android.filament:filament-utils-android:1.9.25")
     
     // Audio Engine 3D AVANZATO - VERSIONE STABILE (mantieni tutto)
     implementation("com.google.oboe:oboe:1.7.0")
