@@ -1,0 +1,22 @@
+GLB_PLACEHOLDER_FILE
+Particle effect per scintille e fumo:
+- Animation: 2-3 secondi di loop
+- Particles: 20-50 spark particles + smoke puff
+- Materials: Emissive con alpha blending
+- Scale: Appropriato per griglia 2x2 unità
+- Colors: Giallo/arancione per sparks, grigio per fumo
+
+Elementi inclusi:
+- Spark emitters con moto parabolico
+- Smoke puff che si espande e sfuma
+- Light flashes per illuminazione dinamica
+- Scale animation da piccolo a grande
+- Alpha fade out finale
+
+Strumenti per creare:
+- Blender con particle systems
+- Houdini per VFX avanzati  
+- Unity VFX Graph (esporta come glTF)
+- Filament particle tools
+
+Sostituisci con vero asset glTF di particelle.

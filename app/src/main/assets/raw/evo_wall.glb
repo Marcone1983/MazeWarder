@@ -1,0 +1,44 @@
+GLB_PLACEHOLDER_FILE
+Evolutionary wall model con morph targets avanzati:
+
+ASSET SPECIFICATIONS:
+- Vertices: 2,000-5,000 (ottimizzato mobile)
+- Materials: PBR con 4K textures
+- Animations: 3 morph targets per evoluzione
+- LOD levels: 3 (high/medium/low detail)
+
+MORPH TARGET SYSTEM:
+1. Base state: Standard concrete wall
+2. Evolution 1: Cracks + moss growth
+3. Evolution 2: Crystal formations
+4. Evolution 3: Energy field effect
+5. Evolution 4: Demolition state
+
+PBR MATERIAL SETUP:
+- Albedo: Base color maps per type
+- Normal: Detail surface variation
+- Roughness: Material property evolution
+- Metallic: Transition to crystalline
+- Emission: Energy effects per evolution
+- AO: Ambient occlusion baked
+
+ANIMATION CURVES:
+- Scale morph: 0→1 con ease-out curve
+- Rotation: Subtle wobble durante crescita
+- Material blend: Smooth transition tra stati
+- Particle spawn: Sync con crescita
+
+TECHNICAL FEATURES:
+- Vertex animation per growing effect
+- UV unwrapping ottimizzato
+- Texture streaming per LOD
+- Collision mesh simplified
+- Lightmap UV channel separato
+
+PERFORMANCE OPTIMIZATION:
+- Triangle budget: <1000 per LOD0
+- Texture compression: ASTC mobile
+- Animation compression: Keyframe reduction
+- Culling: Frustum + occlusion ready
+
+Sostituisci con vero asset glTF con morph targets funzionanti.

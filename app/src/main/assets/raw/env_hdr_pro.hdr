@@ -1,0 +1,34 @@
+HDR_PRO_PLACEHOLDER_FILE
+Environment map HDR professionale per rendering Vulkan-like:
+
+SPECIFICHE AVANZATE:
+- Resolution: 4096x2048 (4K HDR)
+- Format: .hdr/.exr con 32-bit float per canale
+- Dynamic range: 16+ stop di esposizione
+- Content: Studio lighting professionale con soft shadows
+
+CARATTERISTICHE PBR:
+- Diffuse irradiance precalcolata per IBL
+- Specular reflections multi-mip per diversi livelli di roughness
+- Ambient occlusion baked per dettagli realistici
+- Color temperature: 6500K (daylight bilanciato)
+
+LIGHTING SETUP:
+- Key light: Soft area light da 45° (intensità 100k lux)
+- Fill light: Bounce light opposto (intensità 20k lux)
+- Rim light: Highlight per separazione subject/background
+- Environment: Sky dome con gradiente atmosferico
+
+OTTIMIZZAZIONI MOBILE:
+- Compressione KTX2 con ASTC per GPU mobile
+- Mip-maps pregenerate per performance
+- Tone mapping ottimizzato per OLED/LCD
+- Gamma correction sRGB embedded
+
+CONVERSIONE PIPELINE:
+1. Capture HDR con 360° camera o Light Stage
+2. Stitching e color grading in Nuke/After Effects
+3. Conversione con cmgen (Filament tools)
+4. Output: .ktx format per runtime loading
+
+Sostituisci con vero HDR professionale per qualità AAA.

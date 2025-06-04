@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 Dynamic Color Palette -->
+    <color name="seed_color">#6750A4</color>
+    
+    <!-- Primary colors -->
+    <color name="md_theme_light_primary">#6750A4</color>
+    <color name="md_theme_light_onPrimary">#FFFFFF</color>
+    <color name="md_theme_light_primaryContainer">#EADDFF</color>
+    <color name="md_theme_light_onPrimaryContainer">#21005D</color>
+    
+    <!-- Secondary colors -->
+    <color name="md_theme_light_secondary">#625B71</color>
+    <color name="md_theme_light_onSecondary">#FFFFFF</color>
+    <color name="md_theme_light_secondaryContainer">#E8DEF8</color>
+    <color name="md_theme_light_onSecondaryContainer">#1D192B</color>
+    
+    <!-- Tertiary colors -->
+    <color name="md_theme_light_tertiary">#7D5260</color>
+    <color name="md_theme_light_onTertiary">#FFFFFF</color>
+    <color name="md_theme_light_tertiaryContainer">#FFD8E4</color>
+    <color name="md_theme_light_onTertiaryContainer">#31111D</color>
+    
+    <!-- Surface colors -->
+    <color name="md_theme_light_surface">#FEF7FF</color>
+    <color name="md_theme_light_onSurface">#1C1B1F</color>
+    <color name="md_theme_light_surfaceVariant">#E7E0EC</color>
+    <color name="md_theme_light_onSurfaceVariant">#49454F</color>
+    
+    <!-- Background colors -->
+    <color name="md_theme_light_background">#FEF7FF</color>
+    <color name="md_theme_light_onBackground">#1C1B1F</color>
+    
+    <!-- Dark theme colors -->
+    <color name="md_theme_dark_primary">#D0BCFF</color>
+    <color name="md_theme_dark_onPrimary">#381E72</color>
+    <color name="md_theme_dark_primaryContainer">#4F378B</color>
+    <color name="md_theme_dark_onPrimaryContainer">#EADDFF</color>
+    
+    <color name="md_theme_dark_secondary">#CCC2DC</color>
+    <color name="md_theme_dark_onSecondary">#332D41</color>
+    <color name="md_theme_dark_secondaryContainer">#4A4458</color>
+    <color name="md_theme_dark_onSecondaryContainer">#E8DEF8</color>
+    
+    <color name="md_theme_dark_tertiary">#EFB8C8</color>
+    <color name="md_theme_dark_onTertiary">#492532</color>
+    <color name="md_theme_dark_tertiaryContainer">#633B48</color>
+    <color name="md_theme_dark_onTertiaryContainer">#FFD8E4</color>
+    
+    <color name="md_theme_dark_surface">#1C1B1F</color>
+    <color name="md_theme_dark_onSurface">#E6E1E5</color>
+    <color name="md_theme_dark_surfaceVariant">#49454F</color>
+    <color name="md_theme_dark_onSurfaceVariant">#CAC4D0</color>
+    
+    <color name="md_theme_dark_background">#1C1B1F</color>
+    <color name="md_theme_dark_onBackground">#E6E1E5</color>
+    
+    <!-- Game-specific colors -->
+    <color name="game_board_color">#8D6E63</color>
+    <color name="player_a_color">#FF5722</color>
+    <color name="player_b_color">#2196F3</color>
+    <color name="player_c_color">#4CAF50</color>
+    
+    <!-- Wall colors by type -->
+    <color name="wall_normal">#757575</color>
+    <color name="wall_invisible">#E0E0E0</color>
+    <color name="wall_bouncing">#00BCD4</color>
+    <color name="wall_teleporting">#FFEB3B</color>
+    <color name="wall_destructible">#F44336</color>
+    
+    <!-- UI accent colors -->
+    <color name="ability_glow">#FFD700</color>
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF9800</color>
+    <color name="error_red">#F44336</color>
+    
+    <!-- Transparency overlays -->
+    <color name="black_overlay_50">#80000000</color>
+    <color name="white_overlay_20">#33FFFFFF</color>
+    
+    <!-- Legacy colors for compatibility -->
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple_200">#BB86FC</color>
+    <color name="purple_500">#6200EE</color>
+    <color name="purple_700">#3700B3</color>
+    <color name="teal_200">#03DAC5</color>
+    <color name="teal_700">#018786</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="red">#F44336</color>
+</resources>

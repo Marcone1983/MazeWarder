@@ -1,0 +1,13 @@
+GLB_PLACEHOLDER_FILE
+Wall model:
+- Size: 2x1x0.2 units (width x height x depth)
+- Material: Concrete/stone with PBR textures
+- Slightly weathered appearance
+- Suitable for instancing/cloning
+
+Materials needed:
+- Base color: Gray concrete texture
+- Normal map: Stone/concrete surface detail
+- Roughness: 0.8 (rough concrete)
+- Metallic: 0.0 (non-metallic)
+- Optional: AO map for surface detail

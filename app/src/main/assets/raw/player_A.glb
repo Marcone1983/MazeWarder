@@ -1,0 +1,13 @@
+GLB_PLACEHOLDER_FILE
+Player A character model:
+- Size: ~1 unit height
+- Color: Red/Orange theme
+- Basic humanoid shape or geometric representation
+- Minimal animation bones for idle/move
+- PBR materials with color coding
+
+Materials needed:
+- Base color: #FF5722 (orange-red)
+- Metallic: 0.1
+- Roughness: 0.7
+- Normal map for detail

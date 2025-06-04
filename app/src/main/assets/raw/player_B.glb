@@ -1,0 +1,13 @@
+GLB_PLACEHOLDER_FILE
+Player B character model:
+- Size: ~1 unit height
+- Color: Blue theme
+- Basic humanoid shape or geometric representation
+- Minimal animation bones for idle/move
+- PBR materials with color coding
+
+Materials needed:
+- Base color: #2196F3 (blue)
+- Metallic: 0.1
+- Roughness: 0.7
+- Normal map for detail

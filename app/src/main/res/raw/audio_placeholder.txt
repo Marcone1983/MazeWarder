@@ -1,0 +1,20 @@
+# Audio Files Placeholder
+# 
+# Required audio files for MazeWarden 3D:
+#
+# Music:
+# - main_menu_music.mp3 (Main menu background music)
+# - maze_intro.mp3 (Splash screen intro music)
+#
+# Sound Effects:
+# - step_fx.wav (Footstep sound)
+# - wall_fx.wav (Wall hit sound)
+# - skill_fx.wav (Skill activation sound)
+#
+# Voice-Over:
+# - line_intro.mp3 ("Nel labirinto non esistono regole... solo sopravvivenza.")
+# - line_skill.mp3 ("Hai scatenato il potere della maga!")
+# - line_victory.mp3 ("Hai dominato il labirinto, Maze Warden.")
+#
+# Note: Place actual audio files in this directory before building APK
+# Audio files should be in MP3/WAV format and optimized for mobile

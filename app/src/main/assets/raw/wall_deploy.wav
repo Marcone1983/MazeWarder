@@ -1,0 +1,28 @@
+AUDIO_PLACEHOLDER_FILE
+Wall deployment sound effect HD:
+
+AUDIO SPECS:
+- Format: WAV 48kHz/24-bit (studio quality)
+- Duration: 0.8 secondi
+- Layers: Impact + reverb + particle fizz
+- Dynamic range: -6dB to -24dB RMS
+
+SOUND DESIGN:
+- Initial impact: Low-freq thump (80-200Hz)
+- Material resonance: Stone/concrete ring (400-800Hz)
+- Particle spray: High-freq sizzle (8-16kHz)
+- Ambient reverb: Spatial decay tail (2s RT60)
+
+3D SPATIAL PROPERTIES:
+- Attenuation: Inverse square law
+- HRTF: Binaural positioning
+- Occlusion: Wall blocking simulation
+- Distance filtering: HF rolloff >10m
+
+IMPLEMENTATION:
+- ExoPlayer 3D audio positioning
+- Real-time DSP per distance/direction
+- Multi-channel surround support
+- Dynamic range compression per device
+
+Sostituisci con vero audio HD prodotto in studio.
