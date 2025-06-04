@@ -35,10 +35,25 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            storeFile file('mazewarden-release-key.keystore')
+            storePassword 'mazewarden2024'
+            keyAlias 'mazewarden'
+            keyPassword 'mazewarden2024'
+        }
+    }
+
     buildTypes {
         release {
-            minifyEnabled false
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
         }
     }
 
@@ -61,7 +76,7 @@ android {
         enableAggregatingTask = true
     }
 
-    ndkVersion "25.1.8937393"
+    ndkVersion "27.1.12297006"
     externalNativeBuild {
         cmake {
             path file("CMakeLists.txt")

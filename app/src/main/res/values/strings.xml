@@ -32,11 +32,14 @@
     <string name="dark_mode">Modalità Oscura</string>
     
     <!-- Accessibility strings -->
-    <string name="desc_maze_view">Vista del labirinto 3D</string>
-    <string name="desc_skill_button">Pulsante per usare abilità speciale</string>
-    <string name="desc_player">Posizione del giocatore</string>
-    <string name="desc_exit">Uscita del labirinto</string>
-    <string name="desc_wall">Muro del labirinto</string>
+    <string name="desc_maze_view">Vista del labirinto 3D. Tocca per muoverti attraverso il labirinto</string>
+    <string name="desc_skill_button">Pulsante per usare abilità speciale del personaggio</string>
+    <string name="desc_move_button">Pulsante di movimento</string>
+    <string name="desc_player">Posizione attuale del giocatore nel labirinto</string>
+    <string name="desc_exit">Uscita del labirinto - raggiungi questo punto per vincere</string>
+    <string name="desc_wall">Muro del labirinto - blocca il passaggio</string>
+    <string name="desc_logo">Logo di MazeWarden 3D</string>
+    <string name="desc_menu_button">Pulsante del menu principale</string>
     
     <!-- PvP strings -->
     <string name="player_won">Il giocatore %1$d ha vinto la sfida!</string>

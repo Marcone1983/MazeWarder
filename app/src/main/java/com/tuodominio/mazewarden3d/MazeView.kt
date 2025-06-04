@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class MazeView(context: Context) : View(context) {
 
-    private val mazeSize = 11
+    private val mazeSize = context.resources.getInteger(R.dimen.maze_size)
     private var maze = MazeGenerator.generate(mazeSize, mazeSize)
 
     private val player = Point(1, 1)
@@ -25,6 +25,11 @@ class MazeView(context: Context) : View(context) {
     init {
         // Inizializza audio FX
         GameAudioFX.init(context)
+        
+        // Add accessibility support
+        contentDescription = context.getString(R.string.desc_maze_view)
+        isClickable = true
+        isFocusable = true
         
         setOnTouchListener { _, event ->
             if (event.action == MotionEvent.ACTION_DOWN) {
@@ -54,10 +59,11 @@ class MazeView(context: Context) : View(context) {
         }
 
         // Draw player and exit
+        val playerRadius = cellSize * context.resources.getDimension(R.dimen.player_radius_ratio) / context.resources.displayMetrics.density
         canvas.drawCircle(
             (player.x + 0.5f) * cellSize,
             (player.y + 0.5f) * cellSize,
-            cellSize / 3f,
+            playerRadius,
             playerPaint
         )
 
@@ -141,7 +147,7 @@ class MazeView(context: Context) : View(context) {
                     exitPaint.color = if (flashCount % 2 == 0) Color.RED else Color.GREEN
                     invalidate()
                     flashCount++
-                    handler.postDelayed(this, 300)
+                    handler.postDelayed(this, context.resources.getInteger(R.integer.flash_delay).toLong())
                 } else {
                     // Reset to original color
                     exitPaint.color = Color.GREEN

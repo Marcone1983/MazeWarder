@@ -27,6 +27,7 @@ class SplashScreen : Activity() {
                 setMargins(0, 0, 0, 30)
             }
             alpha = 0f
+            contentDescription = getString(R.string.desc_logo)
         }
 
         val title = TextView(this).apply {

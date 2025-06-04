@@ -37,6 +37,7 @@ class MainMenu : Activity() {
                 bottomMargin = 50
             }
             alpha = 0f
+            contentDescription = getString(R.string.desc_logo)
         }
 
         // Animazione logo
@@ -85,6 +86,7 @@ class MainMenu : Activity() {
                     bottomMargin = 30
                 }
                 setPadding(20, 10, 20, 10)
+                contentDescription = getString(R.string.desc_menu_button) + ": $label"
             }
             menu.addView(btn)
         }
