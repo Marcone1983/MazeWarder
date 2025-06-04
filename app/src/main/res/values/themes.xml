@@ -1,34 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base Material3 Theme -->
-    <style name="Theme.MazeWarden3D" parent="Theme.Material3.DayNight.NoActionBar">
+    <!-- Base Material Theme -->
+    <style name="Theme.MazeWarden3D" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary colors -->
-        <item name="colorPrimary">@color/md_theme_light_primary</item>
-        <item name="colorOnPrimary">@color/md_theme_light_onPrimary</item>
-        <item name="colorPrimaryContainer">@color/md_theme_light_primaryContainer</item>
-        <item name="colorOnPrimaryContainer">@color/md_theme_light_onPrimaryContainer</item>
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
         
         <!-- Secondary colors -->
-        <item name="colorSecondary">@color/md_theme_light_secondary</item>
-        <item name="colorOnSecondary">@color/md_theme_light_onSecondary</item>
-        <item name="colorSecondaryContainer">@color/md_theme_light_secondaryContainer</item>
-        <item name="colorOnSecondaryContainer">@color/md_theme_light_onSecondaryContainer</item>
-        
-        <!-- Tertiary colors -->
-        <item name="colorTertiary">@color/md_theme_light_tertiary</item>
-        <item name="colorOnTertiary">@color/md_theme_light_onTertiary</item>
-        <item name="colorTertiaryContainer">@color/md_theme_light_tertiaryContainer</item>
-        <item name="colorOnTertiaryContainer">@color/md_theme_light_onTertiaryContainer</item>
-        
-        <!-- Surface colors -->
-        <item name="colorSurface">@color/md_theme_light_surface</item>
-        <item name="colorOnSurface">@color/md_theme_light_onSurface</item>
-        <item name="colorSurfaceVariant">@color/md_theme_light_surfaceVariant</item>
-        <item name="colorOnSurfaceVariant">@color/md_theme_light_onSurfaceVariant</item>
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
         
         <!-- Background colors -->
-        <item name="android:colorBackground">@color/md_theme_light_background</item>
-        <item name="colorOnBackground">@color/md_theme_light_onBackground</item>
+        <item name="android:colorBackground">@color/black</item>
+        <item name="colorOnBackground">@color/white</item>
+        
+        <!-- Surface colors -->
+        <item name="colorSurface">@color/black</item>
+        <item name="colorOnSurface">@color/white</item>
         
         <!-- System UI colors -->
         <item name="android:statusBarColor">@color/black</item>
@@ -53,15 +43,12 @@
     </style>
     
     <!-- Splash screen theme -->
-    <style name="Theme.MazeWarden3D.Splash" parent="Theme.SplashScreen">
-        <item name="windowSplashScreenBackground">@color/md_theme_light_primary</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
-        <item name="windowSplashScreenAnimationDuration">1000</item>
-        <item name="postSplashScreenTheme">@style/Theme.MazeWarden3D.NoActionBar</item>
+    <style name="Theme.MazeWarden3D.Splash" parent="Theme.MazeWarden3D">
+        <item name="android:windowBackground">@color/purple_500</item>
     </style>
     
     <!-- Game UI component styles -->
-    <style name="GameButton" parent="Widget.Material3.Button.Icon">
+    <style name="GameButton" parent="Widget.MaterialComponents.Button.Icon">
         <item name="android:layout_width">56dp</item>
         <item name="android:layout_height">56dp</item>
         <item name="android:insetTop">0dp</item>
@@ -72,21 +59,19 @@
     </style>
     
     <style name="GameButton.Primary" parent="GameButton">
-        <item name="backgroundTint">@color/md_theme_light_primary</item>
-        <item name="iconTint">@color/md_theme_light_onPrimary</item>
+        <item name="backgroundTint">@color/purple_500</item>
+        <item name="android:textColor">@color/white</item>
     </style>
     
     <style name="GameButton.Ability" parent="GameButton">
         <item name="android:layout_width">72dp</item>
         <item name="android:layout_height">72dp</item>
-        <item name="cornerRadius">36dp</item>
-        <item name="backgroundTint">@color/md_theme_light_tertiary</item>
-        <item name="iconTint">@color/md_theme_light_onTertiary</item>
-        <item name="iconSize">36dp</item>
+        <item name="backgroundTint">@color/teal_200</item>
+        <item name="android:textColor">@color/black</item>
     </style>
     
     <!-- Control panel styling -->
-    <style name="ControlPanel" parent="Widget.Material3.CardView">
+    <style name="ControlPanel" parent="Widget.MaterialComponents.CardView">
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:layout_marginStart">16dp</item>
         <item name="android:layout_marginEnd">16dp</item>
@@ -96,21 +81,21 @@
     </style>
     
     <!-- Typography styles -->
-    <style name="GameText" parent="Widget.Material3.TextView">
-        <item name="android:textColor">@color/md_theme_light_onSurface</item>
+    <style name="GameText">
+        <item name="android:textColor">@color/white</item>
     </style>
     
     <style name="GameText.Title" parent="GameText">
-        <item name="android:textAppearance">@style/TextAppearance.Material3.HeadlineMedium</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline6</item>
         <item name="android:textStyle">bold</item>
     </style>
     
     <style name="GameText.Body" parent="GameText">
-        <item name="android:textAppearance">@style/TextAppearance.Material3.BodyLarge</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Body1</item>
     </style>
     
     <style name="GameText.Caption" parent="GameText">
-        <item name="android:textAppearance">@style/TextAppearance.Material3.BodySmall</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Caption</item>
         <item name="android:alpha">0.7</item>
     </style>
 </resources>
