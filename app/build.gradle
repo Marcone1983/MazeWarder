@@ -6,13 +6,7 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
-// Add repositories for advanced dependencies
-repositories {
-    google()
-    mavenCentral()
-    gradlePluginPortal()
-    maven { url = uri("https://jitpack.io") }
-}
+// Repositories moved to settings.gradle to avoid conflicts
 
 android {
     namespace = "com.marcone1983.mazewarden3d"

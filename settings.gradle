@@ -11,6 +11,8 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
+        // Additional repositories for enterprise dependencies
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
     }
 }
 rootProject.name = "MazeWarden3D"
