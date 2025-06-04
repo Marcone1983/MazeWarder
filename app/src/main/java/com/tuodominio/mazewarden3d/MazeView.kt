@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class MazeView(context: Context) : View(context) {
 
-    private val mazeSize = context.resources.getInteger(R.dimen.maze_size)
+    private val mazeSize = context.resources.getInteger(R.integer.maze_size)
     private var maze = MazeGenerator.generate(mazeSize, mazeSize)
 
     private val player = Point(1, 1)

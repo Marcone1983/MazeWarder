@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Maze dimensions -->
-    <dimen name="maze_size">11</dimen>
+    <integer name="maze_size">11</integer>
     <dimen name="cell_size_ratio">1.0</dimen>
     
     <!-- UI dimensions -->
