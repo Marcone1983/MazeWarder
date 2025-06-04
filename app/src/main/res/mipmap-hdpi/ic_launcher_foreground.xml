@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    
+    <!-- MazeWarden 3D Logo Foreground -->
+    <group
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:translateX="10.8"
+        android:translateY="10.8">
+        
+        <!-- Maze walls -->
+        <path
+            android:fillColor="#FFD700"
+            android:pathData="M20,20 L20,80 L80,80 L80,20 Z
+                           M25,25 L25,75 L75,75 L75,25 Z"/>
+        
+        <!-- Inner maze pattern -->
+        <path
+            android:fillColor="#1A1A1A"
+            android:pathData="M30,30 L30,50 L50,50 L50,70 L70,70 L70,30 Z"/>
+        
+        <!-- Player dot -->
+        <circle
+            android:fillColor="#FFFF00"
+            android:cx="35"
+            android:cy="35"
+            android:r="3"/>
+        
+        <!-- Exit glow -->
+        <circle
+            android:fillColor="#00FF00"
+            android:cx="65"
+            android:cy="65"
+            android:r="4"/>
+            
+        <!-- 3D effect shadow -->
+        <path
+            android:fillColor="#808080"
+            android:pathData="M22,22 L22,82 L25,85 L25,25 L77,25 L80,22 Z"/>
+    </group>
+</vector>

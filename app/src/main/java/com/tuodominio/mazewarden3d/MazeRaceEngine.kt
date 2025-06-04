@@ -1,6 +1,12 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
-object MazeRaceEngine {
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class MazeRaceEngine @Inject constructor(
+    private val scoreBoard: ScoreBoard
+) {
 
     lateinit var player1Maze: Array<Array<Int>>
     lateinit var player2Maze: Array<Array<Int>>
@@ -17,6 +23,8 @@ object MazeRaceEngine {
         player2Pos = Pair(1, 1)
         exit = Pair(size - 2, size - 2)
         raceOver = false
+        
+        scoreBoard.announceRaceStart()
     }
 
     fun updatePlayerPos(player: Int, pos: Pair<Int, Int>) {
@@ -31,10 +39,10 @@ object MazeRaceEngine {
         // Controlla vittoria
         if (player1Pos == exit) {
             raceOver = true
-            ScoreBoard.declareWinner(1)
+            scoreBoard.declareWinner(1)
         } else if (player2Pos == exit) {
             raceOver = true
-            ScoreBoard.declareWinner(2)
+            scoreBoard.declareWinner(2)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.content.Context
 import android.view.Choreographer
@@ -160,8 +160,9 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     // Materiali PBR
     private lateinit var material: Material
 
-    // CoroutineScope per caricare asset in background
+    // CoroutineScope per caricare asset in background - con cleanup
     private val scope = CoroutineScope(Dispatchers.IO + SupervisorJob())
+    private var isDestroyed = false
 
     // Contesto SurfaceView dove disegnare
     private val surfaceView: SurfaceView = SurfaceView(context)
@@ -252,16 +253,26 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
 
     // Main game loop (callback di Choreographer ~60fps)
     override fun doFrame(frameTimeNanos: Long) {
-        if (renderer.beginFrame(swapChain)) {
-            renderer.render(view)
-            renderer.endFrame()
+        if (isDestroyed) return
+        
+        try {
+            if (renderer.beginFrame(swapChain)) {
+                renderer.render(view)
+                renderer.endFrame()
+            }
+            choreographer.postFrameCallback(this)
+        } catch (e: Exception) {
+            // Handle rendering errors gracefully
+            if (!isDestroyed) {
+                choreographer.postFrameCallback(this)
+            }
         }
-        choreographer.postFrameCallback(this)
     }
 
     // Carica i modelli glTF (.glb) e li aggiunge alla scena
     private fun loadModels() {
         scope.launch {
+            if (isDestroyed) return@launch
             // 1) Carica tabellone
             val boardStream = context.assets.open("raw/board_base.glb")
             val (buffer, size) = boardStream.use {
@@ -414,6 +425,7 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
      */
     private fun applyAIMove() {
         scope.launch(Dispatchers.IO) {
+            if (isDestroyed) return@launch
             // 1) Costruisci lo stato corrente dei muri da wallEntities
             val currentWalls = mutableListOf<WallState>()
             val transformManager = engine.transformManager
@@ -585,6 +597,7 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     private fun playWallFlashEffect(entity: Int) {
         // Accendi una luce emissiva per 0.2s sull'entità muro per segnalare l'evoluzione
         scope.launch(Dispatchers.Main) {
+            if (isDestroyed) return@launch
             val renderable = engine.renderableManager
             if (renderable.hasComponent(entity)) {
                 val instance = renderable.getInstance(entity)
@@ -597,11 +610,83 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     }
 
     fun onResume() {
-        choreographer.postFrameCallback(this)
+        if (!isDestroyed) {
+            choreographer.postFrameCallback(this)
+        }
     }
 
     fun onPause() {
         choreographer.removeFrameCallback(this)
+    }
+    
+    fun onDestroy() {
+        isDestroyed = true
+        cleanup()
+    }
+    
+    private fun cleanup() {
+        try {
+            // Stop frame callbacks
+            choreographer.removeFrameCallback(this)
+            
+            // Cancel coroutines
+            scope.cancel()
+            
+            // Cleanup Filament entities
+            cleanupEntities()
+            
+            // Destroy Filament objects in correct order
+            destroyFilamentObjects()
+            
+        } catch (e: Exception) {
+            // Log but don't crash during cleanup
+        }
+    }
+    
+    private fun cleanupEntities() {
+        // Remove all entities from scene
+        playerEntities.forEach { entity ->
+            scene.removeEntity(entity)
+            EntityManager.get().destroy(entity)
+        }
+        playerEntities.clear()
+        
+        wallEntities.forEach { entity ->
+            scene.removeEntity(entity)
+            EntityManager.get().destroy(entity)
+        }
+        wallEntities.clear()
+        
+        // Remove lights
+        lightEntity.forEach { entity ->
+            if (entity != 0) {
+                scene.removeEntity(entity)
+                EntityManager.get().destroy(entity)
+            }
+        }
+        
+        // Remove board
+        if (boardEntity != 0) {
+            scene.removeEntity(boardEntity)
+            EntityManager.get().destroy(boardEntity)
+        }
+        
+        // Remove camera
+        if (cameraEntity != 0) {
+            EntityManager.get().destroy(cameraEntity)
+        }
+    }
+    
+    private fun destroyFilamentObjects() {
+        // Destroy in reverse order of creation
+        engine.destroyView(view)
+        engine.destroyScene(scene)
+        engine.destroyCamera(camera)
+        engine.destroyRenderer(renderer)
+        engine.destroySwapChain(swapChain)
+        
+        // Finally destroy the engine
+        engine.destroy()
     }
 
     // Crea una luce direzionale (sole)
@@ -642,6 +727,7 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     // Carica environment map HDR per riflessioni
     private fun loadHdrEnvironment(fileName: String) {
         scope.launch {
+            if (isDestroyed) return@launch
             try {
                 // Carica HDR da assets per illuminazione ambientale
                 // val hdrStream = context.assets.open("raw/$fileName")
@@ -660,6 +746,7 @@ class GameRenderer(private val context: Context) : Choreographer.FrameCallback {
     // Anima la crescita del muro da scala 0 a 1
     private fun animateWallGrowth(entity: Int) {
         scope.launch(Dispatchers.Main) {
+            if (isDestroyed) return@launch
             val tm = engine.transformManager
             val ti = tm.getInstance(entity)
             

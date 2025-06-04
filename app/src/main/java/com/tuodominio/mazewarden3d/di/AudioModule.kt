@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d.di
+package com.marcone1983.mazewarden3d.di
 
 import android.content.Context
 import android.media.AudioManager

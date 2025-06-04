@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.app.Activity
 import android.graphics.Color
@@ -130,22 +130,37 @@ class MainMenu : Activity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if (::mediaPlayer.isInitialized) {
-            mediaPlayer.release()
+        try {
+            if (::mediaPlayer.isInitialized) {
+                if (mediaPlayer.isPlaying) {
+                    mediaPlayer.stop()
+                }
+                mediaPlayer.release()
+            }
+            GameAudioFX.cleanup()
+            VoiceOver.cleanup()
+        } catch (e: Exception) {
+            // Handle cleanup errors gracefully
         }
     }
 
     override fun onPause() {
         super.onPause()
-        if (::mediaPlayer.isInitialized && mediaPlayer.isPlaying) {
-            mediaPlayer.pause()
-        }
+        try {
+            if (::mediaPlayer.isInitialized && mediaPlayer.isPlaying) {
+                mediaPlayer.pause()
+            }
+            GameAudioFX.pauseBackgroundMusic()
+        } catch (e: Exception) { }
     }
 
     override fun onResume() {
         super.onResume()
-        if (::mediaPlayer.isInitialized && !mediaPlayer.isPlaying) {
-            mediaPlayer.start()
-        }
+        try {
+            if (::mediaPlayer.isInitialized && !mediaPlayer.isPlaying) {
+                mediaPlayer.start()
+            }
+            GameAudioFX.startBackgroundMusic()
+        } catch (e: Exception) { }
     }
 }

@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.content.Context
 import android.graphics.*
@@ -131,14 +131,26 @@ class MazeView(context: Context) : View(context) {
         GameAudioFX.playSkill()
         PlayerAnimator.animateSkillUse(this)
         
-        // Flash the exit tile (change color briefly)
-        Thread {
-            for (i in 0..2) {
-                exitPaint.color = if (i % 2 == 0) Color.RED else Color.GREEN
-                postInvalidate()
-                Thread.sleep(300)
+        // Flash the exit tile (change color briefly) using Handler for thread safety
+        val handler = android.os.Handler(android.os.Looper.getMainLooper())
+        var flashCount = 0
+        
+        val flashRunnable = object : Runnable {
+            override fun run() {
+                if (flashCount <= 2) {
+                    exitPaint.color = if (flashCount % 2 == 0) Color.RED else Color.GREEN
+                    invalidate()
+                    flashCount++
+                    handler.postDelayed(this, 300)
+                } else {
+                    // Reset to original color
+                    exitPaint.color = Color.GREEN
+                    invalidate()
+                }
             }
-        }.start()
+        }
+        
+        handler.post(flashRunnable)
     }
     
     fun updatePlayerSkin(character: String) {

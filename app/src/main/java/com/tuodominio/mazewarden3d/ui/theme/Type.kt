@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d.ui.theme
+package com.marcone1983.mazewarden3d.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

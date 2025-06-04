@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.content.Context
 import android.speech.tts.TextToSpeech
@@ -108,11 +108,15 @@ class VoicePlayer(private val context: Context) {
     }
 
     fun cleanup() {
-        tts?.stop()
-        tts?.shutdown()
-        tts = null
-        isInitialized = false
-        pendingMessages.clear()
+        try {
+            tts?.stop()
+            tts?.shutdown()
+            tts = null
+            isInitialized = false
+            pendingMessages.clear()
+        } catch (e: Exception) {
+            // Handle cleanup errors gracefully
+        }
     }
 
     // Metodi di convenienza per messaggi comuni del gioco

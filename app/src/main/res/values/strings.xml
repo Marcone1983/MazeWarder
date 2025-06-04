@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MazeWarden 3D</string>
+    <string name="action_settings">Settings</string>
+    
+    <!-- Menu strings -->
+    <string name="menu_new_game">Nuova Partita</string>
+    <string name="menu_continue">Continua</string>
+    <string name="menu_tutorial">Tutorial</string>
+    <string name="menu_options">Opzioni</string>
+    <string name="menu_credits">Crediti</string>
+    <string name="menu_exit">Esci</string>
+    
+    <!-- Game strings -->
+    <string name="victory_message">Hai vinto!</string>
+    <string name="game_over">Game Over</string>
+    <string name="skill_used">Skill Usata</string>
+    <string name="use_skill">Usa Skill</string>
+    
+    <!-- Character strings -->
+    <string name="character_warrior">Guerriero</string>
+    <string name="character_mage">Maga</string>
+    <string name="character_robot">Robot</string>
+    <string name="choose_character">Scegli il tuo Guardiano</string>
+    <string name="confirm">Conferma</string>
+    
+    <!-- Settings strings -->
+    <string name="options_title">Opzioni</string>
+    <string name="volume_music">Volume Musica</string>
+    <string name="language">Lingua</string>
+    <string name="theme">Tema</string>
+    <string name="dark_mode">Modalità Oscura</string>
+    
+    <!-- Accessibility strings -->
+    <string name="desc_maze_view">Vista del labirinto 3D</string>
+    <string name="desc_skill_button">Pulsante per usare abilità speciale</string>
+    <string name="desc_player">Posizione del giocatore</string>
+    <string name="desc_exit">Uscita del labirinto</string>
+    <string name="desc_wall">Muro del labirinto</string>
+    
+    <!-- PvP strings -->
+    <string name="player_won">Il giocatore %1$d ha vinto la sfida!</string>
+    <string name="race_starting">Corsa iniziata!</string>
+    
+    <!-- Error strings -->
+    <string name="error_audio_init">Errore nell\'inizializzazione audio</string>
+    <string name="error_save_load">Errore nel caricamento del salvataggio</string>
+    <string name="error_maze_generation">Errore nella generazione del labirinto</string>
+</resources>

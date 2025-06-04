@@ -1,15 +1,27 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
-import android.widget.Toast
 import android.content.Context
+import android.widget.Toast
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-object ScoreBoard {
+@Singleton
+class ScoreBoard @Inject constructor(
+    @ApplicationContext private val context: Context
+) {
+    
     fun declareWinner(player: Int) {
-        Toast.makeText(
-            MazeApp.context,
-            "Il giocatore $player ha vinto la sfida!",
-            Toast.LENGTH_LONG
-        ).show()
-        // Potremmo aggiungere animazioni, effetti luce, ruggiti epici
+        val message = context.getString(R.string.player_won, player)
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+        
+        // Trigger victory effects
+        VoiceOver.speakVictory(context)
+        GameAudioFX.playSkill() // Victory sound effect
+    }
+    
+    fun announceRaceStart() {
+        val message = context.getString(R.string.race_starting)
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 }

@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*

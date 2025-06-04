@@ -1,4 +1,4 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.content.Context
 import android.media.MediaPlayer
@@ -6,38 +6,57 @@ import android.media.MediaPlayer
 object VoiceOver {
 
     private var narrator: MediaPlayer? = null
+    private var isPlaying = false
 
     fun speak(context: Context, lineId: Int) {
         try {
-            narrator?.release()
-            narrator = MediaPlayer.create(context, lineId)
-            narrator?.start()
+            cleanup() // Clean previous instance
+            narrator = MediaPlayer.create(context, lineId)?.apply {
+                setOnCompletionListener {
+                    isPlaying = false
+                    it.release()
+                }
+                setOnErrorListener { _, _, _ ->
+                    isPlaying = false
+                    true
+                }
+                isPlaying = true
+                start()
+            }
         } catch (e: Exception) {
-            // Fallback se file audio non esiste
+            isPlaying = false
         }
     }
     
     fun speakIntro(context: Context) {
-        try {
+        if (!isPlaying) {
             speak(context, R.raw.line_intro)
-        } catch (e: Exception) { }
+        }
     }
     
     fun speakSkill(context: Context) {
-        try {
+        if (!isPlaying) {
             speak(context, R.raw.line_skill)
-        } catch (e: Exception) { }
+        }
     }
     
     fun speakVictory(context: Context) {
-        try {
+        if (!isPlaying) {
             speak(context, R.raw.line_victory)
+        }
+    }
+    
+    fun cleanup() {
+        try {
+            narrator?.apply {
+                if (isPlaying) stop()
+                release()
+            }
+            narrator = null
+            isPlaying = false
         } catch (e: Exception) { }
     }
     
-    fun stop() {
-        narrator?.stop()
-        narrator?.release()
-        narrator = null
-    }
+    // Legacy method for compatibility
+    fun stop() = cleanup()
 }

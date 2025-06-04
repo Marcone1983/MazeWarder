@@ -1,17 +1,18 @@
-package com.tuodominio.mazewarden3d
+package com.marcone1983.mazewarden3d
 
 import android.app.Application
-import android.content.Context
+import dagger.hilt.android.HiltAndroidApp
 
+/**
+ * Simplified Application class for Hilt
+ * No longer holds static context to prevent memory leaks
+ */
+@HiltAndroidApp
 class MazeApp : Application() {
-    
-    companion object {
-        lateinit var context: Context
-            private set
-    }
     
     override fun onCreate() {
         super.onCreate()
-        context = applicationContext
+        // Initialize any global components here
+        // Context injection will be handled by Hilt
     }
 }
