@@ -30,11 +30,21 @@ jobs:
     - name: 🧹 Clean project
       run: ./gradlew clean
       
-    - name: 🔨 Build Debug APK (Enterprise-Grade)
-      run: ./gradlew assembleDebug --stacktrace
+    - name: 🔧 Cache Gradle dependencies
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.gradle/caches
+          ~/.gradle/wrapper
+        key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+        restore-keys: |
+          ${{ runner.os }}-gradle-
+          
+    - name: 🔨 Build Debug APK (Enterprise-Grade 10/10)
+      run: ./gradlew assembleDebug --stacktrace --no-daemon
       
-    - name: 🔨 Build Release APK (Enterprise-Grade) 
-      run: ./gradlew assembleRelease --stacktrace
+    - name: 🔨 Build Release APK (Enterprise-Grade 10/10) 
+      run: ./gradlew assembleRelease --stacktrace --no-daemon
       
     - name: 📋 Run Tests
       run: ./gradlew test --stacktrace

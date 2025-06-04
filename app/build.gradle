@@ -6,6 +6,14 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
+// Add repositories for advanced dependencies
+repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+    maven { url = uri("https://jitpack.io") }
+}
+
 android {
     namespace = "com.marcone1983.mazewarden3d"
     compileSdk 34
@@ -92,27 +100,21 @@ dependencies {
     implementation("androidx.compose.animation:animation:1.5.8")
     implementation("androidx.compose.animation:animation-core:1.5.8")
 
-    // Hilt - Updated
-    implementation("com.google.dagger:hilt-android:2.48")
-    kapt("com.google.dagger:hilt-compiler:2.48")
+    // Hilt - Enterprise DI (stable version)
+    implementation("com.google.dagger:hilt-android:2.47")
+    kapt("com.google.dagger:hilt-compiler:2.47")
 
     // ExoPlayer per audio
     implementation("com.google.android.exoplayer:exoplayer:2.20.1")
     implementation("com.google.android.exoplayer:exoplayer-core:2.20.1")
     implementation("com.google.android.exoplayer:exoplayer-ui:2.20.1")
 
-    // Filament (versione Android, ultima con estensioni HD)
+    // Filament 3D Engine - FULL ENTERPRISE EDITION  
     implementation("com.google.android.filament:filament-android:1.41.0")
-    implementation("com.google.android.filament:gltfio-android:1.41.0")
+    implementation("com.google.android.filament:gltfio-android:1.41.0") 
     implementation("com.google.android.filament:filament-utils-android:1.41.0")
-    implementation("com.google.android.filament:filament-android-skybox:1.41.0")
-    implementation("com.google.android.filament:filament-android-mobile:1.41.0")
     
-    // Effetti immersivi HD e IA avanzata - ENGINE PROPRIETARIO
-    // implementation("dev.immersive.fx:filament-fx:1.0.0")
-    // implementation("ai.warden.godmode:strategic-ai:2.0.0")
-    
-    // Audio Engine 3D avanzato
+    // Audio Engine 3D AVANZATO - MANTIENI TUTTO
     implementation("com.google.oboe:oboe:1.8.0")
     
     // Advanced Graphics Extensions
@@ -121,9 +123,9 @@ dependencies {
     // Material Icons - Updated
     implementation("androidx.compose.material:material-icons-extended:1.5.8")
 
-    // Lifecycle, ViewModel - Updated
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
+    // Lifecycle, ViewModel - Enterprise Architecture
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
 
     // Window Insets per full-screen - Updated
     implementation("androidx.core:core-ktx:1.12.0")
