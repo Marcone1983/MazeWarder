@@ -83,16 +83,16 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 
-    // Jetpack Compose - Updated versions
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation("androidx.compose.ui:ui:1.5.8")
+    // Jetpack Compose - Versioni stabili compatibili (mantieni tutte le features)
+    implementation("androidx.activity:activity-compose:1.7.2")
+    implementation("androidx.compose.ui:ui:1.5.4")
     implementation("androidx.compose.material3:material3:1.1.2")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.5.8")
-    debugImplementation("androidx.compose.ui:ui-tooling:1.5.8")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.5.4")
+    debugImplementation("androidx.compose.ui:ui-tooling:1.5.4")
     
-    // Compose Animations - Updated versions
-    implementation("androidx.compose.animation:animation:1.5.8")
-    implementation("androidx.compose.animation:animation-core:1.5.8")
+    // Compose Animations - Versioni stabili (mantieni animazioni enterprise)
+    implementation("androidx.compose.animation:animation:1.5.4")
+    implementation("androidx.compose.animation:animation-core:1.5.4")
 
     // Hilt - Enterprise DI (stable version)
     implementation("com.google.dagger:hilt-android:2.47")
@@ -103,13 +103,13 @@ dependencies {
     implementation("com.google.android.exoplayer:exoplayer-core:2.20.1")
     implementation("com.google.android.exoplayer:exoplayer-ui:2.20.1")
 
-    // Filament 3D Engine - FULL ENTERPRISE EDITION  
-    implementation("com.google.android.filament:filament-android:1.41.0")
-    implementation("com.google.android.filament:gltfio-android:1.41.0") 
-    implementation("com.google.android.filament:filament-utils-android:1.41.0")
+    // Filament 3D Engine - ENTERPRISE EDITION (versione stabile disponibile)  
+    implementation("com.google.android.filament:filament-android:1.17.1")
+    implementation("com.google.android.filament:gltfio-android:1.17.1") 
+    implementation("com.google.android.filament:filament-utils-android:1.17.1")
     
-    // Audio Engine 3D AVANZATO - MANTIENI TUTTO
-    implementation("com.google.oboe:oboe:1.8.0")
+    // Audio Engine 3D AVANZATO - VERSIONE STABILE (mantieni tutto)
+    implementation("com.google.oboe:oboe:1.7.0")
     
     // Advanced Graphics Extensions
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
